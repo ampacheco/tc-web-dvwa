@@ -1,5 +1,10 @@
+# Define Azure provider configuration
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
+  name     = "dvwa-aci-RG"
   location = "West Europe"
 }
 
