@@ -19,8 +19,8 @@ resource "azurerm_container_group" "example" {
   container {
     name   = "dvwa-on-aci"
     image  = "vulnerables/web-dvwa:latest"
-    cpu    = "0.5"
-    memory = "1.5"
+    # cpu    = "0.5"
+    # memory = "1.5"
 
     ports {
       port     = 80
