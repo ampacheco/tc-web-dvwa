@@ -5,7 +5,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "example" {
   name     = "dvwa-aci-RG"
-  location = "West Europe"
+  location = "East US"
 }
 
 resource "azurerm_container_group" "example" {
@@ -17,25 +17,18 @@ resource "azurerm_container_group" "example" {
   os_type             = "Linux"
 
   container {
-    name   = "hello-world"
-    image  = "mcr.microsoft.com/azuredocs/aci-helloworld:latest"
+    name   = "dvwa-on-aci"
+    image  = "vulnerables/web-dvwa:latest"
     cpu    = "0.5"
     memory = "1.5"
 
     ports {
-      port     = 443
+      port     = 80
       protocol = "TCP"
     }
   }
 
-  container {
-    name   = "sidecar"
-    image  = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
-    cpu    = "0.5"
-    memory = "1.5"
-  }
-
   tags = {
-    environment = "testing"
+    environment = "vulnerables-dvwa"
   }
 }
